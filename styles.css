@@ -9,6 +9,8 @@
     /* Electric Blue */
     --color-accent: #6366f1;
     /* Indigo */
+    --color-brand-orange: #f97316;
+    /* Edgemond Orange for Proof Points */
     --color-text-main: #f8fafc;
     --color-text-dim: #94a3b8;
     --color-border: rgba(255, 255, 255, 0.1);
@@ -20,6 +22,10 @@
     /* Spacing */
     --section-padding: 100px 5%;
     --container-max-width: 1200px;
+
+    /* Technical / Cortex Accents */
+    --color-cortex-line: rgba(16, 185, 129, 0.4);
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 * {
@@ -228,7 +234,6 @@ header .container {
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    /* Matched padding for both sides */
 }
 
 .nav-links {
@@ -252,7 +257,7 @@ header .container {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px;
+    width: 280px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -273,6 +278,34 @@ header .container {
 .dropdown li a:hover {
     background: rgba(255, 255, 255, 0.05);
     color: var(--color-primary);
+}
+
+/* Global Product Hero Pattern */
+.product-hero {
+    padding-top: 200px;
+    padding-bottom: 100px;
+    background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.1), transparent),
+        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.1), transparent);
+}
+
+/* Insight Box Pattern */
+.insight-box {
+    background: rgba(16, 185, 129, 0.05);
+    border-left: 4px solid var(--color-primary);
+    padding: 30px;
+    border-radius: 0 12px 12px 0;
+    margin: 40px 0;
+}
+
+/* Use Case Item Pattern */
+.use-case-item {
+    padding: 25px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 /* Feature Blocks */
@@ -420,4 +453,217 @@ header .container {
 /* Utility */
 .mt-40 {
     margin-top: 40px;
+}
+
+/* Cortex "Command Center" Styling */
+.bg-grid {
+    background-image:
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.hero-technical {
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.15), transparent),
+        radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.1), transparent),
+        var(--color-bg);
+}
+
+.mono-tag {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.technical-stat {
+    font-family: var(--font-mono);
+    color: var(--color-primary);
+}
+
+.stitching-container {
+    position: relative;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.high-fidelity {
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
+}
+
+.operational-gap-card {
+    background: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+/* Tab Selector Styling for Deep Dive */
+.challenge-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.challenge-tab {
+    padding: 15px 25px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Match table header opacity */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.challenge-tab:hover {
+    border-color: var(--color-primary);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.challenge-tab.active {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+}
+
+.challenge-tab.active .technical-stat,
+.challenge-tab.active small {
+    color: var(--color-bg);
+}
+
+.product-focus-card {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.product-focus-card.dimmed {
+    opacity: 0.15;
+    /* Removed filter: blur(2px) to prevent blurry text */
+    transform: scale(0.98);
+}
+
+.detail-specs {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--color-border);
+}
+
+/* Comparison Table */
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 80px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Proof Point Call-outs */
+.proof-point {
+    padding: 20px;
+    border-left: 4px solid var(--color-brand-orange);
+    background: rgba(249, 115, 22, 0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+}
+
+.proof-point-stat {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-brand-orange);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.proof-point-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-dim);
+    text-transform: uppercase;
+}
+
+.benefit-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.benefit-item::before {
+    content: '→';
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Rounded Arrow Utility */
+.selection-arrow {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin: 20px 0;
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }

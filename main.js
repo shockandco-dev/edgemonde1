@@ -83,5 +83,43 @@ document.addEventListener('DOMContentLoaded', () => {
     modal?.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
+
+    // Cortex Deep Dive Challenge Selector Logic
+    const challengeTabs = document.querySelectorAll('.challenge-tab');
+    const productCards = document.querySelectorAll('.product-focus-card');
+
+    if (challengeTabs.length > 0) {
+        challengeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+
+                // Update tab state
+                challengeTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Dim others and highlight target
+                productCards.forEach(card => {
+                    if (card.id === targetId) {
+                        card.classList.remove('dimmed');
+                        card.style.transform = 'scale(1.02)';
+                    } else {
+                        card.classList.add('dimmed');
+                        card.style.transform = 'scale(0.98)';
+                    }
+                });
+
+                // Smooth scroll to target with offset for header
+                if (targetEl) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 40;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
 });
 
