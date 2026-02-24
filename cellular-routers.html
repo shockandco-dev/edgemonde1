@@ -110,6 +110,82 @@
             position: relative;
             z-index: 1;
         }
+
+        /* Matrix Styles */
+        .matrix-section {
+            margin-top: 100px;
+        }
+
+        .matrix-container {
+            overflow-x: auto;
+            margin-bottom: 60px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .matrix-table th {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--color-primary);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .matrix-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-dim);
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--color-text-main);
+        }
+
+        .matrix-table .model-name {
+            color: white;
+            font-weight: 600;
+        }
+
+        .matrix-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .matrix-category-header h3 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .matrix-link {
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .matrix-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -296,6 +372,149 @@
                                 to 5G if primary fiber lines are compromised or offline.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Selection Matrix -->
+            <div class="matrix-section animate">
+                <div class="section-head" style="text-align: center; margin-bottom: 60px;">
+                    <h2>Cradlepoint Endpoint Selection Matrix</h2>
+                    <p>Categorized hardware selection to guide your mission-critical deployment.</p>
+                </div>
+
+                <!-- Sites & Locations -->
+                <div class="matrix-category-header">
+                    <h3><span>🏢</span> Sites & Locations</h3>
+                    <a href="https://cradlepoint.com/products/endpoints/?filter=endpoint_types_routers%2Cuse_case_sites_locations"
+                        target="_blank" class="matrix-link">View All Site & Location Routers →</a>
+                </div>
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Primary Use Case</th>
+                                <th>Performance Level</th>
+                                <th>Key Connectivity Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">E3000</td>
+                                <td>Large Branches / High Traffic</td>
+                                <td>High-Performance 5G</td>
+                                <td>5G (NSA/SA), WiFi 6, Fiber SFP+ ports</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">E300</td>
+                                <td>Mid-Sized Offices / Branches</td>
+                                <td>Mid-Range 5G/LTE</td>
+                                <td>Integrated 5G/LTE, expandable modem slot</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">E102</td>
+                                <td>Small Offices / SOHO</td>
+                                <td>Essential LTE</td>
+                                <td>Compact, secure dedicated network</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">W1850</td>
+                                <td>5G Adapter (Plug-in)</td>
+                                <td>5G Wideband</td>
+                                <td>Adds 5G to existing third-party routers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Vehicles -->
+                <div class="matrix-category-header">
+                    <h3><span>🚑</span> Vehicles</h3>
+                    <a href="https://cradlepoint.com/products/endpoints/?filter=endpoint_types_routers%2Cuse_case_vehicles"
+                        target="_blank" class="matrix-link">View All Vehicle & Mobile Routers →</a>
+                </div>
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Primary Use Case</th>
+                                <th>Performance Level</th>
+                                <th>Key Connectivity Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">R2400</td>
+                                <td>Mission-Critical Fleet</td>
+                                <td>Ruggedized 5G</td>
+                                <td>5G SA, WiFi 6, High-speed GPS tracking</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">R1900</td>
+                                <td>High-Density Mobile</td>
+                                <td>5G Rugged</td>
+                                <td>5G built-in, designed for public safety</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">R920</td>
+                                <td>Service & Delivery Fleets</td>
+                                <td>Versatile LTE</td>
+                                <td>Compact, rugged, expandable to 5G via adapter</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">IBR1700</td>
+                                <td>Large Transit / Public Works</td>
+                                <td>High-Speed LTE</td>
+                                <td>Dual-modem support, multi-carrier failover</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- IoT -->
+                <div class="matrix-category-header">
+                    <h3><span>🤖</span> IoT</h3>
+                    <a href="https://cradlepoint.com/products/endpoints/?filter=endpoint_types_routers%2Cuse_case_iot"
+                        target="_blank" class="matrix-link">View All Industrial & IoT Routers →</a>
+                </div>
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Primary Use Case</th>
+                                <th>Performance Level</th>
+                                <th>Key Connectivity Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="model-name">S700</td>
+                                <td>Critical IoT / Kiosks</td>
+                                <td>Semi-Rugged LTE</td>
+                                <td>Small footprint, NetCloud IoT security</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">S400</td>
+                                <td>Zero Trust IoT</td>
+                                <td>Secure LTE</td>
+                                <td>Micro-segmentation for connected sensors</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">R2100</td>
+                                <td>Outdoor IoT / Smart City</td>
+                                <td>Outdoor 5G</td>
+                                <td>IP67 rated, integrated antennas, PoE powered</td>
+                            </tr>
+                            <tr>
+                                <td class="model-name">R980</td>
+                                <td>Advanced IoT / Robotics</td>
+                                <td>Versatile 5G</td>
+                                <td>High-bandwidth IoT, compact for automation</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
