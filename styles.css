@@ -68,12 +68,37 @@ ul {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
     padding: 14px 28px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.play-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #ef4444;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.play-icon::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent white;
+    margin-left: 2px;
 }
 
 .btn-primary {
