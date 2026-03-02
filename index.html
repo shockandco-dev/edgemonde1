@@ -19,6 +19,10 @@
 
     <link rel="stylesheet" href="styles.css">
 
+    <!-- HubSpot Tracking Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer
+        src="//js-na3.hs-scripts.com/342719804.js"></script>
+
     <!-- SEO Schema -->
     <script type="application/ld+json">
     {
@@ -253,16 +257,16 @@
 
             <form id="contact-form" class="glass animate" style="padding: 40px;">
                 <div class="form-group">
-                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Company Name" required>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="form-group">
-                    <select required>
+                    <select id="interest" name="interest" required>
                         <option value="" disabled selected>Primary Interest</option>
                         <option value="palo-alto">Palo Alto Networks</option>
                         <option value="hpe-juniper">HPE / Juniper</option>
@@ -271,6 +275,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
             </form>
+            <div id="form-success" class="glass animate" style="display: none; padding: 60px 40px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 20px;">✅</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--color-primary);">Inquiry Received</h3>
+                <p style="color: var(--color-text-dim);">Thank you for contacting Edgemonde. Our team will review your
+                    request and get back to you shortly.</p>
+            </div>
         </div>
     </section>
 

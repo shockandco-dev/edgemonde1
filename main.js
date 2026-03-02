@@ -121,5 +121,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // HubSpot Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(contactForm);
+            const data = {
+                fields: [
+                    { name: 'firstname', value: formData.get('firstname') },
+                    { name: 'lastname', value: formData.get('lastname') },
+                    { name: 'email', value: formData.get('email') },
+                    { name: 'interest', value: formData.get('interest') }
+                ],
+                context: {
+                    hutk: document.cookie.match(/hubspotutk=([^;]+)/)?.[1] || '',
+                    pageUri: window.location.href,
+                    pageName: document.title
+                }
+            };
+
+            try {
+                const response = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/342719804/a3f8fcb8-ac03-4f46-91bf-bde6eefcc261', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    contactForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    formSuccess.classList.add('reveal');
+                } else {
+                    const errorData = await response.json();
+                    console.error('HubSpot Error:', errorData);
+                    alert('There was an error submitting the form. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            } catch (error) {
+                console.error('Submission Error:', error);
+                alert('An unexpected error occurred. Please check your connection and try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
 });
 
